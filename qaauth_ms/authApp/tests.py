@@ -28,8 +28,8 @@ class TestAPI(TestCase):
         response = client.post(
                 '/login/', 
                 { 
-                    "username":"test_user_1", 
-                    "password":"test_password_1"
+                    "username":"j2csofka", 
+                    "password":"Sofka1234!"
                 }, 
                 format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -41,19 +41,17 @@ class TestAPI(TestCase):
 
         token_access = client.post(
                     '/login/', 
-                    {"username":"test_user_1", "password":"test_password_1"}, 
+                    {"username":"j2csofka", "password":"Sofka1234!"}, 
                     format='json'
                     ).data["access"]
 
-        secret = 'django-insecure-a$sbxk7p)#ok=yf+%_$^_xfo=9ogzaccn#hgadkiyzjpik4(33'
+        secret = 'django-insecure-w=vz499%48r_@4b)e&l*#fdvkjulw2hqa1w^30q98@83apvsu#'
         user_id = jwt.decode( token_access, secret, algorithms=["HS256"] )["user_id"]
-
+        print(user_id)
         url = '/user/'+ str(user_id) + '/'
         auth_headers = {'HTTP_AUTHORIZATION': 'Bearer ' + token_access,}
 
         response = client.get(url, **auth_headers)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["username"], "test_user_1")
-
-
+        self.assertEqual(response.data["username"], "j2csofka")
