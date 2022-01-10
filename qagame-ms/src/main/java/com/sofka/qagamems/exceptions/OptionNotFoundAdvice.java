@@ -13,7 +13,7 @@ public class OptionNotFoundAdvice {
     @ResponseBody
     @ExceptionHandler(OptionNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String OptionNotFoundAdvice(OptionNotFoundException ex) {
+    String EntityNotFoundAdvice(OptionNotFoundException ex) {
         return ex.getMessage();
     }
 }

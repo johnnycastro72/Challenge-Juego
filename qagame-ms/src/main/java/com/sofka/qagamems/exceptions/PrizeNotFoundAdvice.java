@@ -13,7 +13,7 @@ public class PrizeNotFoundAdvice {
     @ResponseBody
     @ExceptionHandler(PrizeNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String PrizeNotFoundAdvice(PrizeNotFoundException ex) {
+    String EntityNotFoundAdvice(PrizeNotFoundException ex) {
         return ex.getMessage();
     }
 }

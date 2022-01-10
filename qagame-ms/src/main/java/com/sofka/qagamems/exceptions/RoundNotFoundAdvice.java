@@ -13,7 +13,7 @@ public class RoundNotFoundAdvice {
     @ResponseBody
     @ExceptionHandler(RoundNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String RoundNotFountAdvice(RoundNotFoundException ex) {
+    String EntityNotFoundAdvice(RoundNotFoundException ex) {
         return ex.getMessage();
     }
 }
