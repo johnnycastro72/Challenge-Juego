@@ -27,23 +27,41 @@ const recordTypeDefs = gql `
     type Record {
         id: String!
         user: String!
-        date: Date!
+        date: String!
         idRound: Round!
         idQuestion: Question!
         idStatus: Status!
     }
 
-    type RecordInput {
+    input CategoryInput {
+        level: String!
+    }
+
+    input OptionInput {
+        answer: String!
+        correct: Boolean!
+    }
+
+    input QuestionInput {
+        idCategory: CategoryInput!
+        srecord: String!
+        options: [OptionInput]!
+    }
+
+    input StatusInput {
+        status: String!
+    }
+    input RecordInput {
         user: String!
-        date: Date!
-        idRound: Round!
-        idQuestion: Question!
-        idStatus: Status!
+        date: String!
+        idRound: RoundInput!
+        idQuestion: QuestionInput!
+        idStatus: StatusInput!
     }
 
     extend type Query {
-        getAllRecords(): [Record]
-        findByidStatus(status: String!) [Record]
+        getAllRecords: [Record]
+        findByidStatus(status: String!): [Record]
     }
 
     extend type Mutation {

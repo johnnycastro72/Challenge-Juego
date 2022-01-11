@@ -19,21 +19,29 @@ const questionTypeDefs = gql `
         options: [Option]!
     }
 
-    type QuestionInput {
-        idCategory: Category!
+    input CategoryInput {
+        level: String!
+    }
+
+    input OptionInput {
+        answer: String!
+        correct: Boolean!
+    }
+    input QuestionInput {
+        idCategory: CategoryInput!
         squestion: String!
-        options: [Option]!
+        options: [OptionInput]!
     }
 
     extend type Query {
-        getAllQuestions(): [Question]
-        findByidCategory(category: String!) [Question]
+        getAllQuestions: [Question]
+        findByidCategory(category: String!): [Question]
     }
 
     extend type Mutation {
         createQuestion(question: QuestionInput!): Question
         updateQuestion(id: String!, question: QuestionInput!): Question
-        deleteQuestion(id: String!): Void
+        deleteQuestion(id: String!): ID
     }
     
 `;

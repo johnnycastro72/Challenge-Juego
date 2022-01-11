@@ -9,6 +9,7 @@ const categoryResolver = {
         }
 
     },
+    
     Mutation: {
         createCategory: async(_, { category }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username

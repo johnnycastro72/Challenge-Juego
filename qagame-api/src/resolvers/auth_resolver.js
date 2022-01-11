@@ -7,6 +7,7 @@ const usersResolver = {
                 return null
         },
     },
+    
     Mutation: {
         signUpUser: async(_, { userInput }, { dataSources }) => {
             const authInput = {
@@ -25,4 +26,5 @@ const usersResolver = {
             dataSources.qaAuthAPI.refreshToken(refresh),
     }
 };
+
 module.exports = usersResolver;

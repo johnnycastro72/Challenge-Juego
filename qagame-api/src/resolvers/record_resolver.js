@@ -7,7 +7,7 @@ const recordResolver = {
             else
                 return null
         },
-
+        
         findByidStatus: async(_, { status }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
             if (usernameToken != null)
@@ -22,13 +22,13 @@ const recordResolver = {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
             if (usernameToken != null) {
                 const recordInfo = {
-                    user = record.user,
-                    date = record.date,
-                    idRound = record.idRound,
-                    idQuestion = record.idQuestion,
-                    idStatus = record.idStatus,
+                    user: record.user,
+                    date: record.date,
+                    idRound: record.idRound,
+                    idQuestion: record.idQuestion,
+                    idStatus: record.idStatus,
                 }
-                return dataSources.qaGameAPI.createRecord(recordInfo)
+                return await dataSources.qaGameAPI.createRecord(recordInfo)
             }
             else
                 return null

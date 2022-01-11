@@ -11,7 +11,7 @@ const categoryTypeDefs = gql `
     }
 
     extend type Query {
-        getAllCategories(): [Category]
+        getAllCategories: [Category]
     }
 
     extend type Mutation {

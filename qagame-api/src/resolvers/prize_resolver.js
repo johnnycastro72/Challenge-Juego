@@ -9,15 +9,16 @@ const prizeResolver = {
         }
 
     },
+    
     Mutation: {
         createPrize: async(_, { prize }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
             if (usernameToken != null) {
                 const prizeInfo = {
-                    prize = prize.prize,
-                    value = prize.value,
+                    prize: prize.prize,
+                    value: prize.value,
                 }
-                return dataSources.qaGameAPI.createPrize(prizeInfo)
+                return await dataSources.qaGameAPI.createPrize(prizeInfo)
             }
             else
                 return null

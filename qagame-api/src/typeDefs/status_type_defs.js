@@ -11,7 +11,7 @@ const statusTypeDefs = gql `
     }
 
     extend type Query {
-        getAllStatus(): [Status]
+        getAllStatus: [Status]
     }
 
     extend type Mutation {

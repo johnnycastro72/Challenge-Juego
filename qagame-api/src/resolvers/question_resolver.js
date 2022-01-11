@@ -7,7 +7,7 @@ const questionResolver = {
             else
                 return null
         },
-
+        
         findByidCategory: async(_, { category }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
             if (usernameToken != null)
@@ -17,16 +17,17 @@ const questionResolver = {
         }
 
     },
+
     Mutation: {
         createQuestion: async(_, { question }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
             if (usernameToken != null) {
                 const questionInfo = {
-                    idCategory = question.idCategory,
-                    squestion = question.squestion,
-                    options = question.options,
+                    idCategory: question.idCategory,
+                    squestion: question.squestion,
+                    options: question.options,
                 }
-                return dataSources.qaGameAPI.createQuestion(questionInfo)
+                return await dataSources.qaGameAPI.createQuestion(questionInfo)
             }
             else
                 return null
@@ -36,11 +37,11 @@ const questionResolver = {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
             if (usernameToken != null) {
                 const questionInfo = {
-                    idCategory = question.idCategory,
-                    squestion = question.squestion,
-                    options = question.options,
+                    idCategory: question.idCategory,
+                    squestion: question.squestion,
+                    options: question.options,
                 }
-                return dataSources.qaGameAPI.updateQuestion(id, questionInfo)
+                return await dataSources.qaGameAPI.updateQuestion(id, questionInfo)
             }
             else
                 return null
@@ -49,7 +50,7 @@ const questionResolver = {
         deleteQuestion: async(_, { id }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
             if (usernameToken != null)
-                return dataSources.qaGameAPI.deleteQuestion(id)
+                return await dataSources.qaGameAPI.deleteQuestion(id)
             else
                 return null
             }

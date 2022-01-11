@@ -9,7 +9,7 @@ const authTypeDefs = gql `
     type Access {
         access: String!
     }
-
+    
     input CredentialsInput {
         username: String!
         password: String!

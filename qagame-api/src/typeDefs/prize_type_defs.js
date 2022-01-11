@@ -13,7 +13,7 @@ const prizeTypeDefs = gql `
     }
 
     extend type Query {
-        getAllPrizes(): [Prize]
+        getAllPrizes: [Prize]
     }
 
     extend type Mutation {

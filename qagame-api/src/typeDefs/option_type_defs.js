@@ -13,7 +13,7 @@ const optionTypeDefs = gql `
     }
 
     extend type Query {
-        getAllOptions(): [Option]
+        getAllOptions: [Option]
     }
 
     extend type Mutation {

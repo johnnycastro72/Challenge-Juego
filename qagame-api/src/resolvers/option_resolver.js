@@ -9,15 +9,16 @@ const optionResolver = {
         }
 
     },
+    
     Mutation: {
         createOption: async(_, { option }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
             if (usernameToken != null) {
-                const optionInfo = {
-                    answer = option.answer,
-                    correct = option.correct,
+                const optionInput = {
+                    answer: option.answer,
+                    correct: option.correct,
                 }
-                return dataSources.qaGameAPI.createoption(optionInfo)
+                return await dataSources.qaGameAPI.createOption(optionInput)
             }
             else
                 return null

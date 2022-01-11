@@ -125,7 +125,7 @@ class qaGameAPI extends RESTDataSource {
         return await this.get(`/rounds/${id}`);
     }
 
-    async findByidCategory(id) {
+    async findByideCategory(id) {
         return await this.get(`/rounds/category/${id}`);
     }
 

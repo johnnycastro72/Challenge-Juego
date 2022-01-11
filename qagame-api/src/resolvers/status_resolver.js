@@ -9,6 +9,7 @@ const statusResolver = {
         }
 
     },
+    
     Mutation: {
         createStatus: async(_, { status }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
@@ -16,7 +17,7 @@ const statusResolver = {
                 const statusInput = {
                     status: status.status,
                 }
-                return await dataSources.qaGameAPI.createCategory(statusInput)
+                return await dataSources.qaGameAPI.createStatus(statusInput)
             }
             else
                 return null

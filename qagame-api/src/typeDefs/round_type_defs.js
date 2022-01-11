@@ -18,14 +18,22 @@ const roundTypeDefs = gql `
         idPrize: Prize!
     }
 
+    input CategoryInput {
+        level: String!
+    }
+
+    input PrizeInput {
+        prize: String!
+        value: Int!
+    }
     input RoundInput {
-        idCategory: Category!
-        idPrize: Prize!
+        idCategory: CategoryInput!
+        idPrize: PrizeInput!
     }
 
     extend type Query {
-        getAllRounds(): [Round]
-        findByidCategory(category: String!) [Round]
+        getAllRounds: [Round]
+        findByideCategory(category: String!): [Round]
     }
 
     extend type Mutation {
