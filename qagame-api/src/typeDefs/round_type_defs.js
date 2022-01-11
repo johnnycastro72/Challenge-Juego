@@ -24,7 +24,8 @@ const roundTypeDefs = gql `
     }
 
     extend type Query {
-        getAllRound(): [Round]
+        getAllRounds(): [Round]
+        findByidCategory(category: String!) [Round]
     }
 
     extend type Mutation {
