@@ -2,17 +2,17 @@ const { ApolloServer } = require('apollo-server');
 
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
-const qaGameAPI = require('./dataSources/qagame_api');
-const qaAuthAPI = require('./dataSources/qaauth_api');
+const qaauthAPI = require('./dataSources/qaauth_api');
+const qagameAPI = require('./dataSources/qagame_api');
 const authentication = require('./utils/authentication');
 
 const server = new ApolloServer({
-    context: authentication,
-        typeDefs,
-        resolvers,
+    context: authentication, 
+    typeDefs, 
+    resolvers,
     dataSources: () => ({
-        qaGameAPI: new qaGameAPI(),
-        qaAuthAPI: new qaAuthAPI(),
+        qaAuthAPI: new qaauthAPI(),
+        qaGameAPI: new qagameAPI(),
     }),
     introspection: true,
     playground: true
