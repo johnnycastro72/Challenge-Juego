@@ -1,5 +1,6 @@
 package com.sofka.qagamems.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,9 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Status {
     @Id
     private String id;
-    @Indexed(unique = true)
     private String status;
 
+    @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
     public Status(String status) {
         this.status = status;
     }

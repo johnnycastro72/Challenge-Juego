@@ -1,7 +1,6 @@
 package com.sofka.qagamems.controllers;
 
 import com.sofka.qagamems.exceptions.RoundNotFoundException;
-import com.sofka.qagamems.models.Question;
 import com.sofka.qagamems.models.Round;
 import com.sofka.qagamems.repositories.RoundRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
