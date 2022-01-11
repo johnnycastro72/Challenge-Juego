@@ -1,0 +1,19 @@
+{
+  "name": "qagame-api",
+  "version": "1.0.0",
+  "description": "Api Gateway Questions & Answers Game",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "j2cSofka",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource-rest":"^3.1.1",
+    "apollo-server":"^3.1.2",
+    "graphql":"^15.5.1",
+    "lodash":"^4.17.21",
+    "node-fetch":"^2.6.1"
+  }
+}
