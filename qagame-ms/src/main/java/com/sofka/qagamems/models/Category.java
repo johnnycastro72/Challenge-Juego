@@ -8,11 +8,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Category {
     @Id
     private String id;
+
     @Indexed(unique = true)
     private String Level;
 
-    public Category(String id, String level) {
-        this.id = id;
+    public Category(String level) {
         Level = level;
     }
 
@@ -27,4 +27,10 @@ public class Category {
     public void setLevel(String level) {
         Level = level;
     }
+
+    @Override
+    public String toString() {
+        return "Category [id=" + id + ", level=" + Level + "]";
+    }
+
 }

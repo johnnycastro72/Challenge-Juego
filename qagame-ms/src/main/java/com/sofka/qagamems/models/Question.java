@@ -13,8 +13,7 @@ public class Question {
     private String question;
     private List<Option> options;
 
-    public Question(String id, Category idCategory, String question, List<Option> options) {
-        this.id = id;
+    public Question(Category idCategory, String question, List<Option> options) {
         this.idCategory = idCategory;
         this.question = question;
         this.options = options;
@@ -47,4 +46,5 @@ public class Question {
     public void setOptions(List<Option> options) {
         this.options = options;
     }
+
 }

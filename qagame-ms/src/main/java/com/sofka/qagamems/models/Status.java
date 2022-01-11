@@ -11,8 +11,7 @@ public class Status {
     @Indexed(unique = true)
     private String status;
 
-    public Status(String id, String status) {
-        this.id = id;
+    public Status(String status) {
         this.status = status;
     }
 

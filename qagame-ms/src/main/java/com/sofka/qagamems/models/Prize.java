@@ -10,8 +10,7 @@ public class Prize {
     private String prize;
     private int value;
 
-    public Prize(String id, String prize, int value) {
-        this.id = id;
+    public Prize(String prize, int value) {
         this.prize = prize;
         this.value = value;
     }
@@ -35,4 +34,10 @@ public class Prize {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "Prize [id=" + id + ", prize=" + prize + ", value=" + value + "]";
+    }
+
 }

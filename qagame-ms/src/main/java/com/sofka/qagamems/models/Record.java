@@ -15,8 +15,7 @@ public class Record {
     private Question idQuestion;
     private Status idStatus;
 
-    public Record(String id, String user, Date date, Round idRound, Question idQuestion, Status idStatus) {
-        this.id = id;
+    public Record(String user, Date date, Round idRound, Question idQuestion, Status idStatus) {
         this.user = user;
         this.date = date;
         this.idRound = idRound;

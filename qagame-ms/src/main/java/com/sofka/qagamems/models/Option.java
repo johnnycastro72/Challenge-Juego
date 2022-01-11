@@ -10,8 +10,7 @@ public class Option {
     private String answer;
     private Boolean correct;
 
-    public Option(String id, String answer, Boolean correct) {
-        this.id = id;
+    public Option(String answer, Boolean correct) {
         this.answer = answer;
         this.correct = correct;
     }
@@ -35,4 +34,10 @@ public class Option {
     public void setCorrect(Boolean correct) {
         this.correct = correct;
     }
+
+    @Override
+    public String toString() {
+        return "Option [id=" + id + ", answer=" + answer + ", correct=" + correct.toString() + "]";
+    }
+
 }

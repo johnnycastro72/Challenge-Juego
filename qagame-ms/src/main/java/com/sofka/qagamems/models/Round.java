@@ -12,8 +12,7 @@ public class Round {
     private Category idCategory;
     private List<Prize> prizes;
 
-    public Round(String id, Category idCategory, List<Prize> prizes) {
-        this.id = id;
+    public Round(Category idCategory, List<Prize> prizes) {
         this.idCategory = idCategory;
         this.prizes = prizes;
     }
