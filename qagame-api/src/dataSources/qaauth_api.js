@@ -31,4 +31,3 @@ class qaAuthAPI extends RESTDataSource {
 }
 
 module.exports = qaAuthAPI;
-   
