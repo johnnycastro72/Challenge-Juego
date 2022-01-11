@@ -52,7 +52,7 @@ public class RecordController {
             }
             return new ResponseEntity<>(records, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -95,7 +95,7 @@ public class RecordController {
     }
 
     @DeleteMapping("/records")
-    public ResponseEntity<HttpStatus> feleteAllRecords() {
+    public ResponseEntity<HttpStatus> deleteAllRecords() {
         try {
             recordRepository.deleteAll();
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

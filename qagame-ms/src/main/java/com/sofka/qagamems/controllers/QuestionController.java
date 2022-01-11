@@ -30,7 +30,7 @@ public class QuestionController {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
 
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(questions, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -45,12 +45,12 @@ public class QuestionController {
     @GetMapping("/questions/category/{idCategory}")
     public ResponseEntity<List<Question>> findByidCategory(@PathVariable String idCategory) {
         try {
-            List<Question> categories = questionRepository.findByidCategory(idCategory);
+            List<Question> questions = questionRepository.findByidCategory(idCategory);
 
-            if (categories.isEmpty()) {
+            if (questions.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(categories, HttpStatus.OK);
+            return new ResponseEntity<>(questions, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
