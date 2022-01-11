@@ -45,9 +45,9 @@ public class RecordController {
     }
 
     @GetMapping("/records/status/{idStatus}")
-    public ResponseEntity<List<Record>> findByStatus(@PathVariable String idStatus) {
+    public ResponseEntity<List<Record>> findByidStatus(@PathVariable String idStatus) {
         try {
-            List<Record> records = recordRepository.findByStatus(idStatus);
+            List<Record> records = recordRepository.findByidStatus(idStatus);
 
             if (records.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);

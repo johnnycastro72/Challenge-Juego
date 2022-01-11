@@ -44,9 +44,9 @@ public class QuestionController {
     }
 
     @GetMapping("/questions/category/{idCategory}")
-    public ResponseEntity<List<Question>> findByCategory(@PathVariable String idCategory) {
+    public ResponseEntity<List<Question>> findByidCategory(@PathVariable String idCategory) {
         try {
-            List<Question> categories = questionRepository.findByCategory(idCategory);
+            List<Question> categories = questionRepository.findByidCategory(idCategory);
 
             if (categories.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);

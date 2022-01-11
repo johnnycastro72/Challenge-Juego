@@ -45,9 +45,9 @@ public class RoundController {
     }
 
     @GetMapping("/rounds/category/{idCategory}")
-    public ResponseEntity<List<Round>> findByCategory(@PathVariable String idCategory) {
+    public ResponseEntity<List<Round>> findByidCategory(@PathVariable String idCategory) {
         try {
-            List<Round> rounds = roundRepository.findByCategory(idCategory);
+            List<Round> rounds = roundRepository.findByidCategory(idCategory);
 
             if (rounds.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
