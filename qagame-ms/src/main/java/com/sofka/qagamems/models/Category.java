@@ -10,6 +10,8 @@ public class Category {
     private String id;
     private String level;
 
+    public Category() { }
+
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
     public Category(String level) {
         this.level = level;

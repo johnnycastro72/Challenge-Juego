@@ -10,6 +10,8 @@ public class Prize {
     private String prize;
     private int value;
 
+    public Prize() { }
+
     public Prize(String prize, int value) {
         this.prize = prize;
         this.value = value;

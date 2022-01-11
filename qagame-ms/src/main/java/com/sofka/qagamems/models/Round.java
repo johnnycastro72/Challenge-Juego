@@ -3,18 +3,16 @@ package com.sofka.qagamems.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
 @Document
 public class Round {
     @Id
     private String id;
     private Category idCategory;
-    private List<Prize> prizes;
+    private Prize idPrize;
 
-    public Round(Category idCategory, List<Prize> prizes) {
+    public Round(Category idCategory, Prize idPrize) {
         this.idCategory = idCategory;
-        this.prizes = prizes;
+        this.idPrize = idPrize;
     }
 
     public String getId() {
@@ -29,11 +27,11 @@ public class Round {
         this.idCategory = idCategory;
     }
 
-    public List<Prize> getPrizes() {
-        return prizes;
+    public Prize getIdPrize() {
+        return idPrize;
     }
 
-    public void setPrizes(List<Prize> prizes) {
-        this.prizes = prizes;
+    public void setIdPrize(Prize idPrize) {
+        this.idPrize = idPrize;
     }
 }

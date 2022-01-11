@@ -59,7 +59,7 @@ public class RoundController {
     @PostMapping("/rounds")
     public ResponseEntity<Round> createRound(@RequestBody Round round) {
         try {
-            Round _round = roundRepository.save(new Round(round.getIdCategory(), round.getPrizes()));
+            Round _round = roundRepository.save(new Round(round.getIdCategory(), round.getIdPrize()));
             return new ResponseEntity<>(_round, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -74,7 +74,7 @@ public class RoundController {
         if (roundData.isPresent()) {
             Round _round = roundData.get();
             _round.setIdCategory(round.getIdCategory());
-            _round.setPrizes(round.getPrizes());
+            _round.setIdPrize(round.getIdPrize());
             return new ResponseEntity<>(roundRepository.save(_round), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

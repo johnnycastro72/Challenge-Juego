@@ -10,12 +10,12 @@ public class Question {
     @Id
     private String id;
     private Category idCategory;
-    private String question;
+    private String squestion;
     private List<Option> options;
 
-    public Question(Category idCategory, String question, List<Option> options) {
+    public Question(Category idCategory, String squestion, List<Option> options) {
         this.idCategory = idCategory;
-        this.question = question;
+        this.squestion = squestion;
         this.options = options;
     }
 
@@ -31,12 +31,12 @@ public class Question {
         this.idCategory = idCategory;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getsQuestion() {
+        return squestion;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setsQuestion(String squestion) {
+        this.squestion = squestion;
     }
 
     public List<Option> getOptions() {

@@ -57,9 +57,9 @@ public class QuestionController {
     }
 
     @PostMapping("/questions")
-    public ResponseEntity<Question> createQuestion(@PathVariable Question question) {
+    public ResponseEntity<Question> createQuestion(@RequestBody Question question) {
         try {
-            Question _question = questionRepository.save(new Question(question.getIdCategory(), question.getQuestion(), question.getOptions()));
+            Question _question = questionRepository.save(new Question(question.getIdCategory(), question.getsQuestion(), question.getOptions()));
             return new ResponseEntity<>(_question, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -73,7 +73,7 @@ public class QuestionController {
 
         if (questionData.isPresent()) {
             Question _question = questionData.get();
-            _question.setQuestion(question.getQuestion());
+            _question.setsQuestion(question.getsQuestion());
             _question.setIdCategory(question.getIdCategory());
             _question.setOptions(question.getOptions());
             return new ResponseEntity<>(questionRepository.save(_question), HttpStatus.OK);
