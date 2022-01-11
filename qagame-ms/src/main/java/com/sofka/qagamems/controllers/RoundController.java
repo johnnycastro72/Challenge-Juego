@@ -1,6 +1,7 @@
 package com.sofka.qagamems.controllers;
 
 import com.sofka.qagamems.exceptions.RoundNotFoundException;
+import com.sofka.qagamems.models.Question;
 import com.sofka.qagamems.models.Round;
 import com.sofka.qagamems.repositories.RoundRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,20 @@ public class RoundController {
     Round getRound(@PathVariable String id) {
         return roundRepository.findById(id)
                 .orElseThrow(() -> new RoundNotFoundException("Round NOT Found"));
+    }
+
+    @GetMapping("/rounds/category/{idCategory}")
+    public ResponseEntity<List<Round>> findByCategory(@PathVariable String idCategory) {
+        try {
+            List<Round> rounds = roundRepository.findByCategory(idCategory);
+
+            if (rounds.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(rounds, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping("/rounds")

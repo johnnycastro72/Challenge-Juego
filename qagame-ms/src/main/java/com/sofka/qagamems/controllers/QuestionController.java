@@ -43,6 +43,20 @@ public class QuestionController {
                 .orElseThrow(() -> new QuestionNotFoundException("Question NOT Found"));
     }
 
+    @GetMapping("/questions/category/{idCategory}")
+    public ResponseEntity<List<Question>> findByCategory(@PathVariable String idCategory) {
+        try {
+            List<Question> categories = questionRepository.findByCategory(idCategory);
+
+            if (categories.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(categories, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @PostMapping("/questions")
     public ResponseEntity<Question> createQuestion(@PathVariable Question question) {
         try {

@@ -1,6 +1,7 @@
 package com.sofka.qagamems.controllers;
 
 import com.sofka.qagamems.exceptions.RecordNotFoundException;
+import com.sofka.qagamems.models.Question;
 import com.sofka.qagamems.models.Record;
 import com.sofka.qagamems.repositories.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,20 @@ public class RecordController {
     Record getRecord(@PathVariable String id) {
         return recordRepository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException("Record NOT Found"));
+    }
+
+    @GetMapping("/records/status/{idStatus}")
+    public ResponseEntity<List<Record>> findByStatus(@PathVariable String idStatus) {
+        try {
+            List<Record> records = recordRepository.findByStatus(idStatus);
+
+            if (records.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(records, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping("/records")
