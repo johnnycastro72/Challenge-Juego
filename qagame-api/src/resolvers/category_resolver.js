@@ -1,31 +1,27 @@
-const accountResolver = {
+const categoryResolver = {
     Query: {
         getAllCategories: async(_, { dataSources, userIdToken }) => {
-            usernameToken = (await dataSources.qaauthAPI.getUser(userIdToken)).username
-            if (username == usernameToken)
-                return await dataSources.accountAPI.accountByUsername(username)
-            else
-                return null
-        },
-
-        transactionByUsername: async(_, { username }, { dataSources, userIdToken }) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            if (username == usernameToken)
-                return dataSources.accountAPI.transactionByUsername(username)
+            usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
+            if (usernameToken != null)
+                return await dataSources.qaGameAPI.getAllCategories()
             else
                 return null
         }
-            
+
     },
     Mutation: {
-        createTransaction: async(_, { transaction }, { dataSources, userIdToken }) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            if (transaction.usernameOrigin == usernameToken)
-                return dataSources.accountAPI.createTransaction(transaction)
+        createCategory: async(_, { category }, { dataSources, userIdToken }) => {
+            usernameToken = (await dataSources.qaAuthAPI.getUser(userIdToken)).username
+            if (usernameToken != null) {
+                const categoryInput = {
+                    level: category.level,
+                }
+                return await dataSources.qaGameAPI.createCategory(categoryInput)
+            }
             else
                 return null
             }
     }
 };
 
-module.exports = accountResolver; 
+module.exports = categoryResolver; 

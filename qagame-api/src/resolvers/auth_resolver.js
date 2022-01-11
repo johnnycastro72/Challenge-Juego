@@ -2,7 +2,7 @@ const usersResolver = {
     Query: {
         userDetailById: (_, { userId }, { dataSources, userIdToken }) => {
             if (userId == userIdToken)
-                return dataSources.qaauthAPI.getUser(userId)
+                return dataSources.qaAuthAPI.getUser(userId)
             else
                 return null
         },
