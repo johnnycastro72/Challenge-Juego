@@ -64,6 +64,7 @@ These instructions will get you a copy of the project up and running on your loc
 - API Gateway - GraphQL node.js - https://qagame-api.herokuapp.com/
 - Authentication microservice django rest python - https://qaauth-ms.herokuapp.com/
 - Question and answers game microservice - Spring Boot Java - https://qagame-ms.herokuapp.com/
+- Question and answers game front end - Vue.js Node.js - https://qagame-fe.herokuapp.com/
 
 
 ### Installing
